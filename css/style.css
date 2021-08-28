@@ -1,0 +1,364 @@
+/* ============================ General styling ======================= */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus{
+  outline: none;
+}
+
+:root{
+  --primary-color: hsl(0, 100%, 38%);
+  --secondary-color: hsl(24, 100%, 38%);
+  --max-width: 1024px;
+}
+
+body{
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+  font-family: 'Roboto', sans-serif;
+  background: url('/img/background.jpg') no-repeat center center/cover;
+}
+
+body::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  opacity: .5;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#555, #fff , #fff, #fff, #555);
+}
+
+.current{
+  background: #333;
+  color: #fff;
+  border: 2px #333 solid;
+  transition: background 1s;
+}
+
+.current:hover{
+  background: rgba(0, 0, 0, 0);
+}
+
+.btn{
+  border: none;
+  background: #333;
+  margin: auto;
+  display: block;
+  text-align: center;
+  width: 10rem
+}
+
+.btn-orange{
+  color: hsl(24, 100%, 38%, .8);
+}
+
+.btn-yellow{
+  color: hsl(59, 100%, 38%, .8)
+}
+
+.btn-orange,
+.btn-yellow{
+  transition: background .5s;
+}
+
+.btn-orange:hover,
+.btn-yellow:hover,
+.btn-orange:focus,
+.btn-yellow:focus{
+  background: rgb(63, 63, 63);
+}
+
+/* ============================ Navbar styling ======================= */
+nav{
+  margin: auto;
+  height: 50px;
+  max-width: var(--max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+}
+
+nav h3,
+nav h3 span{
+  color: #000;
+  transition: all .5s;
+}
+
+nav .title{
+  border-radius: 10px;
+  transition: box-shadow 1s;
+}
+
+nav h3 span{
+  color: var(--primary-color);
+}
+
+
+nav h3:hover{
+  color: var(--primary-color);
+}
+
+nav h3:hover span{
+  color: #000;
+}
+
+nav ul{
+  margin: 0 10px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+a{
+  font-weight: 600;
+  padding: .5rem 1rem;
+  margin: .25rem;
+  text-decoration: none;
+  color: #333;
+}
+
+li a{
+  transition: background 1s, color 1s !important;
+}
+
+li a:hover,
+li a:focus{
+  color:hsl(0, 100%, 38%);
+  border-bottom: 2px #555 solid;
+}
+
+/* ============================ Main body styling ======================= */
+section{
+  max-width: var(--max-width);
+  height: auto;
+  margin: auto;
+  padding: 3rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 3rem;
+}
+
+section .container1{
+  background: linear-gradient(to right, hsl(0, 100%, 25%, 0.9), hsl(0, 100%, 38%, 0.9), hsl(0, 100%, 25%, 0.9) );
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  grid-row: 1 / span 2;
+}
+
+section ul{
+  list-style-type: none;
+}
+
+section h2{
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-decoration: underline;
+
+}
+
+section ul li{
+  font-weight: 1000;
+  margin-bottom: .3rem;
+}
+
+section ul li ul li{
+  font-weight: 100;
+  padding-left: 1rem;
+}
+
+section .container2{
+  background: linear-gradient(to right, hsl(24, 100%, 25%, 0.9), hsl(24, 100%, 38%, 0.9), hsl(24, 100%, 25%, 0.9) );
+  border-radius: 25px;
+  padding: 1rem 2rem;
+  grid-column: 2 / span 3;
+}
+
+section .container3{
+  background: linear-gradient(to right, hsl(59, 100%, 25%, 0.9), hsl(59, 100%, 38%, 0.9), hsl(59, 100%, 25%, 0.9) );
+  border-radius: 25px;
+  padding: 1rem 6rem;
+  grid-column: 2 / span 3;
+}
+
+section .container3 p,
+section .container2 p{
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+section .container1,
+section .container2,
+section .container3{
+  height: 100%;
+}
+
+/* ============================ Footer styling ======================= */
+footer{
+  background: #444;
+  max-width: var(--max-width);
+  height: 30px;
+  margin: auto;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer p{
+  margin: 0 2rem;
+  opacity: .8;
+  transition: color 1s;
+}
+
+footer p:hover{
+  color: hsl(24, 100%, 38%);
+  opacity: 1;
+}
+
+/* ============================ Media Qureies ======================= */
+@media(max-width: 1050px){
+  section{
+    width: 60%;
+    display: block;
+    padding: 6.94rem 0;
+    overflow: hidden;
+  }
+
+  .container1,
+  .container2,
+  .container3{
+    margin: 2rem 0;
+    display: block;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .container2 p,
+  .container3 p{
+    margin: 3rem 0;
+  }
+
+  .container2 .btn,
+  .container3 .btn{
+    margin: 3rem auto 0 auto;
+  }
+
+  .container3{
+   padding: 3rem 3rem !important;
+  }
+
+  .ul1{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .ul2{
+    padding: 2rem 0;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ul1 li h4{
+    text-align: center;
+  }
+
+  .ul2 li{
+    padding-top: .5rem;
+  }
+}
+
+@media(max-width: 800px){
+  section{
+    padding: 2rem 0;
+  }
+
+  .container1,
+  .container2,
+  .container3{
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  .container2 .btn,
+  .container3 .btn{
+    margin: 1rem auto 0 auto;
+  }
+
+  .container2 p,
+  .container3 p{
+    margin: 1rem 0;
+  }
+
+  footer{
+    flex-direction: column;
+    height: 114px;
+    padding: .5rem 0;
+  }
+
+  .ul2{
+    padding: .5rem 0;
+  }
+}
+
+@media(max-width: 500px){
+  nav{
+    flex-direction: column;
+    height: 6rem;
+    justify-content: center;
+  }
+ 
+  section{
+    padding: 1rem 0;
+  }
+
+  body{
+    background: #fff;
+  }
+  
+  body::before{
+    position: fixed;
+  }
+  
+  .container1,
+  .container2,
+  .container3{
+    margin: .5rem 0;
+    width: 100%;
+    display: block;
+    height: 450px !important;
+  }
+
+  .container2,
+  .container3{
+    height: 350px !important;
+  }
+
+  .btn-orange{
+    align-self: center !important;
+    display: block !important;
+  }
+
+  .ul1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(min-width: 1100px){
+  section{
+    height: calc(100vh - 50px - 30px);
+  }
+}
